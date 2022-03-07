@@ -10,7 +10,7 @@ int temp=*a;
 //hoare's partition pivot  = arr[mid]
 int partition(int arr[], int low , int high){
 int i= low-1;
-int j=high;
+int j=high+1;
 int mid=(low + high)/2;
 int pivot=arr[mid];
 
@@ -26,7 +26,7 @@ do
 {
     j--;
     
-}while ( j>0 && arr[j]>pivot);
+}while (arr[j]>pivot);
 
 if(i < j)
 swap(&arr[i], &arr[j]);
@@ -34,7 +34,7 @@ swap(&arr[i], &arr[j]);
 
 }
 
-swap(&arr[mid], &arr[j]);
+//swap(&arr[mid], &arr[j]);
 return j; //pivot index
 
 
@@ -56,18 +56,15 @@ quicksort(arr, j+1, high);
 
 int main(){
 
-int arr[]={12,2,1,90};
-int n=sizeof(arr)/sizeof(arr[0]);
+int arr[]={45,2,1,22,11,9};
+int n=sizeof(arr) / sizeof(arr[0]);
+
 quicksort(arr, 0, n-1);
+cout<<"sorted array::";
 for(int i=0;i<n;i++)
 cout<<arr[i]<<" ";
 cout<<endl;
 return 0;
 
 }
-
-
-
-
-
 
